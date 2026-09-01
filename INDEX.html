@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마케팅 1팀 · 8월 4주차 콘텐츠 성과 보고서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    /* base */
+    --ink:#1a2230;
+    --ink-soft:#5a6675;
+    --paper:#f5f7fa;
+    --paper-2:#eef2f7;
+    --card:#ffffff;
+    --line:#e2e8f0;
+    /* main accent */
+    --accent0:#3a6ea5;     /* 메인 파랑 */
+    --accent0-soft:#eaf1f9;
+    /* section colors */
+    --sec01:#d64545;       /* 빨강 */
+    --sec02:#3a6ea5;       /* 파랑 */
+    --sec03:#7c5cbf;       /* 보라 */
+    --sec04:#6aa84f;       /* 연두 */
+    --sec05:#1aa3a3;       /* 민트 */
+    --sec06:#d68a1e;       /* 추가(앰버) */
+    --sec07:#c0468a;       /* 추가(자홍) */
+    /* roas */
+    --roas-high:#1f9d57;
+    --roas-high-bg:#e6f6ed;
+    --roas-mid:#b07d12;
+    --roas-mid-bg:#fbf2dc;
+    --roas-low:#d64545;
+    --roas-low-bg:#fbe9e9;
+    --shadow:0 1px 2px rgba(26,34,48,.04), 0 12px 32px -20px rgba(26,34,48,.35);
+    --font:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+    --mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:-.01em;
+  }
+  .grain{display:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px 100px;position:relative;z-index:2}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+  /* ---------- Masthead ---------- */
+  header.mast{padding:56px 0 34px;position:relative}
+  .kicker{font-weight:700;font-size:.74rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent0);margin-bottom:16px}
+  .mast h1{font-weight:800;font-size:clamp(2.1rem,5.2vw,3.4rem);
+    line-height:1.12;letter-spacing:-.035em;color:var(--ink)}
+  .mast h1 .yr{font-weight:700;color:var(--accent0)}
+  .mast .sub{margin-top:18px;font-size:1.01rem;color:var(--ink-soft);max-width:64ch;text-wrap:pretty}
+  /* KPI banner */
+  .kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:30px;
+    background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .kpi-banner .cell{background:var(--card);padding:20px 22px}
+  .kpi-banner .lbl{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:8px}
+  .kpi-banner .v{font-family:var(--mono);font-weight:500;font-size:1.6rem;line-height:1;letter-spacing:-.04em;color:var(--ink)}
+  @media(max-width:680px){.kpi-banner{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- Section ---------- */
+  section{margin-top:58px;scroll-margin-top:20px}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .sec-num{font-family:var(--mono);font-weight:500;color:#fff;
+    border-radius:10px;width:40px;height:40px;flex:none;
+    display:grid;place-items:center;font-size:1rem}
+  .sec-head h2{font-weight:800;font-size:clamp(1.4rem,3.2vw,1.9rem);letter-spacing:-.035em}
+  .sec-desc{color:var(--ink-soft);font-size:.95rem;margin:6px 0 24px;padding-left:54px;max-width:74ch;text-wrap:balance}
+  .sec-desc::before{content:"▪️ ";font-style:normal}
+  .s1 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec01);margin-right:7px;vertical-align:baseline}
+  .s2 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec02);margin-right:7px}
+  .s3 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec03);margin-right:7px}
+  .s4 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec04);margin-right:7px}
+  .s5 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec05);margin-right:7px}
+  .s6 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec06);margin-right:7px}
+  .s7 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec07);margin-right:7px}
+  .s2 .sec-desc.red-mark::before{background:var(--sec01)}
+  /* per-section accent */
+  .s1 .sec-num{background:var(--sec01)} .s1 h3{color:var(--sec01)!important} .s1 .sec-num{box-shadow:0 4px 12px -4px var(--sec01)}
+  .s2 .sec-num{background:var(--sec02)} .s2 h3{color:var(--sec02)!important}
+  .s3 .sec-num{background:var(--sec03)} .s3 h3{color:var(--sec03)!important}
+  .s4 .sec-num{background:var(--sec04)} .s4 h3{color:var(--sec04)!important}
+  .s5 .sec-num{background:var(--sec05)} .s5 h3{color:var(--sec05)!important}
+  .s6 .sec-num{background:var(--sec06)} .s6 h3{color:var(--sec06)!important}
+  .s7 .sec-num{background:var(--sec07)}
+
+  /* ---------- KPI cards ---------- */
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .kpi::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent0)}
+  .kpi.green::before{background:var(--roas-high)}
+  .kpi.red::before{background:var(--roas-low)}
+  .kpi .lbl{font-size:.71rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px;font-weight:600}
+  .kpi .val{font-family:var(--mono);font-weight:500;font-size:1.9rem;line-height:1;letter-spacing:-.05em}
+  .kpi .val small{font-size:.9rem;color:var(--ink-soft);font-weight:500;letter-spacing:0;font-family:var(--font)}
+  .kpi .delta{margin-top:8px;font-size:.79rem;font-weight:600}
+  .up{color:var(--roas-high)} .down{color:var(--roas-low)}
+
+  /* ---------- Tables (card) ---------- */
+  .tbl-wrap{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  caption{caption-side:top;text-align:left;font-weight:700;
+    font-size:1rem;padding:16px 20px 4px;color:var(--ink);letter-spacing:-.02em}
+  thead th{background:var(--paper-2);font-weight:700;font-size:.72rem;letter-spacing:.03em;
+    text-transform:uppercase;color:var(--ink-soft);text-align:right;padding:11px 16px;border-bottom:1px solid var(--line)}
+  thead th:first-child{text-align:left}
+  tbody td{padding:11px 16px;text-align:right;border-bottom:1px solid var(--paper-2)}
+  tbody td:not(:first-child){font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  tbody td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--accent0-soft)}
+  tr.total td{background:var(--paper-2);font-weight:700;border-top:1px solid var(--line)}
+  .name-sm{font-size:.8rem;color:var(--ink-soft);font-weight:400;font-family:var(--font)}
+  .roas{font-family:var(--mono);font-weight:500;letter-spacing:-.02em}
+  .roas-high{color:var(--roas-high);font-weight:500}
+  .roas-low{color:var(--roas-low);font-weight:500}
+  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.74rem;font-weight:700;font-family:var(--font)}
+  .pill.good{background:var(--roas-high-bg);color:var(--roas-high)}
+  .pill.mid{background:var(--roas-mid-bg);color:var(--roas-mid)}
+  .pill.warn{background:var(--roas-low-bg);color:var(--roas-low)}
+  .fire{color:var(--sec01);font-weight:500}
+
+  /* ---------- Callout ---------- */
+  .note{margin-top:20px;padding:17px 20px;border-left:4px solid var(--accent0);
+    background:var(--accent0-soft);border-radius:0 10px 10px 0;font-size:.92rem}
+  .note.warn{border-left-color:var(--roas-low);background:var(--roas-low-bg)}
+  .note.good{border-left-color:var(--roas-high);background:var(--roas-high-bg)}
+  .note b{color:var(--ink)}
+  .note .tag{font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent0);display:block;margin-bottom:6px}
+  .note.warn .tag{color:var(--roas-low)} .note.good .tag{color:var(--roas-high)}
+  details.note{padding:0}
+  details.note>summary{list-style:none;cursor:pointer;padding:14px 20px;display:flex;align-items:center;gap:8px;
+    font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent0);user-select:none}
+  details.note>summary::-webkit-details-marker{display:none}
+  details.note>summary::after{content:"▸";margin-left:auto;font-size:.85rem;transition:transform .18s ease;color:var(--ink-soft)}
+  details.note[open]>summary::after{transform:rotate(90deg)}
+  details.note.good>summary{color:var(--roas-high)}
+  details.note .tg-body{padding:0 20px 16px;font-size:.92rem}
+  details.note .tg-body p:first-child{margin-top:0}
+  /* structured meeting summary */
+  .mtg{margin-top:18px;display:grid;gap:14px}
+  .mtg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:680px){.mtg-grid{grid-template-columns:1fr}}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px}
+  .mcard.accent{border-left:4px solid var(--accent0);background:var(--accent0-soft)}
+  .mcard.good{border-left:4px solid var(--roas-high);background:var(--roas-high-bg)}
+  .mcard.span2{grid-column:1 / -1}
+  .mcard h4{margin:0 0 10px;font-size:.9rem;letter-spacing:-.01em;display:flex;align-items:center;gap:7px}
+  .mcard h4 .ic{font-size:1rem}
+  .mcard .row{font-size:.87rem;line-height:1.5;margin:0 0 8px;padding-left:13px;position:relative;text-wrap:pretty}
+  .mcard .row:last-child{margin-bottom:0}
+  .mcard .row::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--accent0);opacity:.55}
+  .mcard.good .row::before{background:var(--roas-high)}
+  .mcard .row b{color:var(--ink)}
+  .mcard .lbl{display:inline-block;min-width:fit-content;font-weight:700;color:var(--accent0);font-size:.8rem;margin-right:5px}
+  .mcard.good .lbl{color:var(--roas-high)}
+  .prio{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .prio li{font-size:.86rem;line-height:1.45;display:flex;gap:9px;align-items:baseline}
+  .prio li .n{flex:0 0 auto;width:20px;height:20px;border-radius:6px;background:var(--accent0);color:#fff;
+    font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .tl{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .tl li{font-size:.85rem;line-height:1.45}
+  .tl li .who{font-weight:700;color:var(--ink)}
+  .tl li .seq{color:var(--ink-soft);font-size:.82rem}
+
+  ul.takeaways{list-style:none;margin-top:16px;padding-left:54px;display:grid;gap:11px}
+  ul.takeaways li{position:relative;padding-left:22px;font-size:.93rem}
+  ul.takeaways li::before{content:"▸";position:absolute;left:0;color:var(--accent0);font-weight:700}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.twocol{grid-template-columns:1fr}.sec-desc,ul.takeaways{padding-left:0}}
+
+  h3.sub-h{margin:30px 0 4px;padding-left:54px;font-weight:700;font-size:1.02rem;letter-spacing:-.02em}
+  @media(max-width:680px){h3.sub-h{padding-left:0}}
+
+  /* 운영 리듬 flow */
+  .rhythm{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;gap:8px;margin-top:14px}
+  .rhythm .step{display:flex;align-items:center;gap:9px;background:var(--card);position:relative;
+    border:1px solid var(--line);border-left:3px solid var(--sec06);border-radius:11px;
+    padding:11px 15px;font-size:.88rem;font-weight:600;color:var(--ink);box-shadow:var(--shadow)}
+  .rhythm .step small{font-weight:400;color:var(--ink-soft);font-size:.76rem;margin-left:2px}
+  .rhythm .step .n{font-family:var(--mono);font-weight:500;font-size:.8rem;color:#fff;flex-shrink:0;
+    background:var(--sec06);width:21px;height:21px;border-radius:6px;display:grid;place-items:center}
+  .rhythm .step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);
+    color:var(--sec06);font-weight:700;font-size:1.05rem;z-index:1}
+  @media(max-width:680px){.rhythm{grid-template-columns:1fr;gap:14px}
+    .rhythm .step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-13px;transform:translateX(-50%)}}
+
+  /* 버섯목 킬콘 gallery */
+  .ad-link{display:inline-block;margin-left:6px;color:var(--sec01);font-weight:700;text-decoration:none;
+    border-bottom:1.5px solid var(--sec01);padding-bottom:1px}
+  .ad-link:hover{opacity:.7}
+  .killcon{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+  .killcon .kc{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:var(--shadow);margin:0;display:flex;flex-direction:column}
+  .killcon .kc img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#000}
+  .killcon .kc figcaption{padding:11px 13px 14px;font-size:.8rem;color:var(--ink-soft);line-height:1.5}
+  .killcon .kc-tag{display:block;font-size:.68rem;letter-spacing:.04em;font-weight:700;
+    color:var(--sec01);margin-bottom:5px;text-transform:uppercase}
+  @media(max-width:480px){.killcon{grid-template-columns:1fr}}
+
+  footer{margin-top:78px;padding-top:24px;border-top:1px solid var(--line);
+    font-size:.8rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .disc{margin-top:14px;font-size:.78rem;color:#8a96a6;padding-left:54px;max-width:76ch}
+  @media(max-width:680px){.disc{padding-left:0}}
+
+  .rv{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ---------- 추가: 매체 블록 / 입력란 / 추천 ---------- */
+  .media-block{margin-top:22px}
+  .media-block .mh{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .media-block .badge{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.04em;
+    color:#fff;padding:4px 11px;border-radius:8px}
+  .badge.meta{background:var(--sec02)} .badge.gfa{background:var(--sec04)} .badge.ggl{background:var(--sec06)}
+  .media-block .mh b{font-size:.96rem;letter-spacing:-.02em}
+  .media-block .mh .sm{font-size:.82rem;color:var(--ink-soft);font-weight:500}
+
+  /* 입력 가능한 표 */
+  .editable caption{color:var(--sec07)}
+  td.input-cell{background:#fffdf7;color:#b08900;font-style:italic}
+  .editable tbody td[contenteditable]{outline:none}
+  .editable tbody td[contenteditable]:focus{background:#fff8e1;box-shadow:inset 0 0 0 2px var(--sec06)}
+  .hint{font-size:.78rem;color:#8a96a6;margin-top:8px;padding-left:2px}
+  .hint::before{content:"✎ ";color:var(--sec06)}
+
+  /* 추천 후보 카드 */
+  .reco{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px;margin-top:6px}
+  .reco .rc{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 17px;
+    box-shadow:var(--shadow);border-top:3px solid var(--sec07)}
+  .reco .rc .rt{font-size:.71rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--sec07);margin-bottom:7px}
+  .reco .rc .rn{font-weight:700;font-size:.92rem;letter-spacing:-.02em;margin-bottom:6px;line-height:1.4}
+  .reco .rc .rm{font-size:.83rem;color:var(--ink-soft);line-height:1.5}
+  .reco .rc .rs{font-family:var(--mono);font-weight:500;color:var(--roas-high)}
+
+  /* 주차 추이 미니 */
+  .trend td .wk{font-family:var(--mono);font-weight:500}
+  .up-arrow{color:var(--roas-high);font-weight:700}
+  .flat-arrow{color:var(--roas-mid);font-weight:700}
+
+  /* note 내부 단락 간격 */
+  .note p{margin:0 0 8px;text-wrap:pretty}
+  .note p:last-child{margin-bottom:0}
+  .note ul.tight{list-style:none;display:grid;gap:7px;margin:8px 0 0;font-size:.9rem}
+  .note ul.tight li{padding-left:14px;position:relative;line-height:1.55}
+  .note ul.tight li::before{content:"·";position:absolute;left:2px;color:var(--ink-soft)}
+
+  /* 표 셀 안 불릿 리스트 */
+  ul.cell-list{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:.86rem;text-align:left;white-space:normal}
+  ul.cell-list li{padding-left:12px;position:relative;line-height:1.45}
+  ul.cell-list li::before{content:"·";position:absolute;left:1px;color:var(--ink-soft)}
+
+  /* 콘텐츠 캘린더 */
+  .cal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+  .cal .cal-h{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-soft);
+    text-align:center;padding-bottom:4px;font-weight:600}
+  .cal .day{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:9px 9px 11px;
+    min-height:96px;display:flex;flex-direction:column;gap:7px}
+  .cal .day.empty{background:transparent;border-style:dashed;border-color:#e8ecf1}
+  .cal .dnum{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--ink-soft);text-align:right}
+  .cal .ev{font-size:.74rem;line-height:1.35;background:#f6f8fa;border-radius:7px;padding:6px 7px;
+    border-left:3px solid var(--sec02)}
+  .cal .ev .who{display:inline-block;font-size:.66rem;color:var(--ink-soft);margin-right:5px}
+  .cal .ev .typ{display:inline-block;font-size:.62rem;font-weight:600;padding:1px 6px;border-radius:6px;
+    margin-top:3px}
+  .typ.img{background:#eef4ff;color:#3a6ea5} .typ.ugc{background:#eaf6ec;color:#3d8b54}
+  .typ.pa{background:#f0ebfa;color:#7a5bc2}
+  .cal .ev.pa-ev{border-left-color:var(--sec06)} .cal .ev.ugc-ev{border-left-color:var(--sec04)}
+  .cal-week{font-family:var(--mono);font-size:.78rem;color:var(--accent0);font-weight:600;margin:18px 0 4px}
+  @media(max-width:760px){.cal{grid-template-columns:repeat(2,1fr)}.cal .cal-h{display:none}}
+
+  /* 제품별 아웃풋 카드 */
+  .out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:8px}
+  @media(max-width:760px){.out-grid{grid-template-columns:1fr}}
+  .out-card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 17px;
+    box-shadow:var(--shadow);border-top:3px solid var(--line)}
+  .out-card.c-elbow{border-top-color:var(--sec07)}
+  .out-card.c-neck{border-top-color:var(--sec02)}
+  .out-card.c-waist{border-top-color:var(--sec04)}
+  .out-card .oc-h{font-weight:700;font-size:.95rem;letter-spacing:-.02em;margin-bottom:10px}
+  .out-card .oc-h .cnt{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);font-weight:500;margin-left:6px}
+  .out-card ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:.87rem}
+  .out-card li{padding-left:13px;position:relative;line-height:1.45}
+  .out-card li::before{content:"·";position:absolute;left:2px;color:var(--ink-soft)}
+  .out-card li .t{display:inline-block;font-size:.64rem;font-weight:600;padding:1px 6px;border-radius:5px;margin-left:5px;vertical-align:middle}
+  .t-vi{background:#eaf6ec;color:#3d8b54} .t-im{background:#eef4ff;color:#3a6ea5} .t-pa{background:#f0ebfa;color:#7a5bc2}
+  .t-rvi{background:#fdeee6;color:#c26a2e}
+
+  /* ---------- 담당자 액션 (금주) ---------- */
+  .act-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+  @media(max-width:760px){.act-grid{grid-template-columns:1fr}}
+  .act-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .act-card .ac-h{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:13px 17px;border-bottom:1px solid var(--paper-2);background:var(--paper-2)}
+  .act-card .ac-name{font-weight:800;font-size:1rem;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+  .act-card .ac-name .dot{width:9px;height:9px;border-radius:3px;flex:none}
+  .act-card .ac-total{font-family:var(--mono);font-weight:500;font-size:.74rem;color:#fff;
+    background:var(--sec07);padding:4px 11px;border-radius:20px;white-space:nowrap}
+  .act-card ul{list-style:none;margin:0;padding:13px 17px 15px;display:grid;gap:9px;font-size:.88rem;flex:1}
+  .act-card li{display:flex;align-items:baseline;justify-content:space-between;gap:10px;line-height:1.45;
+    padding-bottom:9px;border-bottom:1px solid var(--paper-2)}
+  .act-card li:last-child{border-bottom:none;padding-bottom:0}
+  .act-card li .txt{color:var(--ink)}
+  .act-card li .txt b{font-weight:700}
+  .act-card li .txt .sub{display:block;font-size:.8rem;color:var(--ink-soft);margin-top:2px}
+  .act-card li .qty{font-family:var(--mono);font-weight:500;font-size:.78rem;white-space:nowrap;
+    background:var(--accent0-soft);color:var(--accent0);padding:2px 9px;border-radius:7px;flex:none}
+  .dot-c1{background:var(--sec02)} .dot-c2{background:var(--sec05)} .dot-c3{background:var(--sec06)} .dot-c4{background:var(--sec03)}
+  .act-card.a4 .ac-total{background:var(--sec03)}
+
+  /* ---------- 회의 요약 ---------- */
+  .mtg-sum{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:8px}
+  @media(max-width:760px){.mtg-sum{grid-template-columns:1fr}}
+  .ms-card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 17px;box-shadow:var(--shadow)}
+  .ms-card.span2{grid-column:1/-1}
+  .ms-card h4{font-size:.9rem;font-weight:800;letter-spacing:-.02em;margin:0 0 9px;display:flex;align-items:center;gap:7px}
+  .ms-card h4 .mn{font-family:var(--mono);font-weight:500;color:#fff;background:var(--accent0);
+    width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:.72rem;flex:none}
+  .ms-card ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.86rem}
+  .ms-card li{padding-left:14px;position:relative;line-height:1.5;color:var(--ink-soft)}
+  .ms-card li::before{content:"·";position:absolute;left:3px;color:var(--accent0);font-weight:700}
+  .ms-card li b{color:var(--ink)}
+  .notion-link{display:inline-flex;align-items:center;gap:9px;margin-top:18px;text-decoration:none;
+    background:var(--ink);color:#fff;font-size:.9rem;font-weight:600;letter-spacing:-.01em;
+    padding:11px 18px;border-radius:11px;box-shadow:var(--shadow);transition:opacity .15s}
+  .notion-link:hover{opacity:.85}
+  .notion-link .ic{font-size:1.05rem}
+  .notion-link .arr{margin-left:auto;opacity:.6}
+
+  /* 제품별 고효율 소재 행 */
+  ul.mat-rows{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  ul.mat-rows li{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:8px;
+    font-size:.84rem;line-height:1.35;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  ul.mat-rows li:last-child{border-bottom:none;padding-bottom:0}
+  ul.mat-rows .mn{color:var(--ink);min-width:0}
+  ul.mat-rows .who2{font-size:.72rem;color:var(--ink-soft);white-space:nowrap}
+  ul.mat-rows .sp{font-family:var(--mono);font-size:.74rem;color:var(--ink-soft);white-space:nowrap;text-align:right;min-width:46px}
+  ul.mat-rows .ro{font-family:var(--mono);font-size:.84rem;color:var(--roas-high);white-space:nowrap;text-align:right;min-width:46px}
+  @media(max-width:760px){ul.mat-rows li{grid-template-columns:1fr auto auto}ul.mat-rows .who2{display:none}}
+
+  /* 소재 스크린샷 블록 */
+  .mat-block{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .mat-block .mb-h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+  .mat-block .mb-h b{font-size:.98rem;letter-spacing:-.02em}
+  .mat-block .mb-h .tag{font-size:.66rem}
+  .mat-block .mb-desc{font-size:.86rem;color:var(--ink-soft);margin-bottom:11px;line-height:1.55}
+  .mat-block img{width:100%;height:auto;border-radius:9px;border:1px solid var(--line);display:block}
+  .mat-block .img-ph, .img-ph{width:100%;min-height:150px;border-radius:9px;border:1px dashed var(--line);
+    display:flex;align-items:center;justify-content:center;color:#aeb7c2;font-size:.82rem;background:#fafbfc}
+  .mat-block .cap{font-size:.74rem;color:#8a96a6;margin-top:7px}
+
+  /* 링크 버튼 */
+  .link-btn{display:inline-flex;align-items:center;gap:9px;margin-top:20px;text-decoration:none;
+    background:var(--accent0);color:#fff;font-size:.9rem;font-weight:600;letter-spacing:-.01em;
+    padding:12px 20px;border-radius:11px;box-shadow:var(--shadow);transition:opacity .15s}
+  .link-btn:hover{opacity:.88}
+  .link-btn .ic{font-size:1rem}
+  .link-btn .arr{margin-left:2px;opacity:.7}
+
+  /* ---------- 담당자 하이라이트 리디자인 ---------- */
+  .grp-label{display:flex;align-items:center;gap:9px;margin:26px 0 12px;
+    font-size:.76rem;font-weight:700;letter-spacing:.04em;color:var(--ink-soft);text-transform:uppercase}
+  .grp-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .grp-label .gi{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;
+    font-size:.78rem;color:#fff;flex:none}
+  .grp-label .gi.hi{background:var(--roas-high)}
+  .grp-label .gi.lo{background:var(--sec06)}
+
+  .pcard-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:680px){.pcard-grid{grid-template-columns:1fr}}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:0;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .pcard .pc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:13px 17px;border-bottom:1px solid var(--paper-2)}
+  .pcard .pc-name{font-weight:800;font-size:1rem;letter-spacing:-.02em;display:flex;align-items:center;gap:7px}
+  .pcard .pc-role{font-size:.73rem;font-weight:600;color:var(--ink-soft);
+    background:var(--paper-2);padding:3px 9px;border-radius:7px;white-space:nowrap}
+  .pcard .pc-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--paper-2)}
+  .pcard .pm{background:var(--card);padding:11px 10px 12px;text-align:center}
+  .pcard .pm .pl{font-size:.63rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);
+    font-weight:600;margin-bottom:5px}
+  .pcard .pm .pv{font-family:var(--mono);font-weight:500;font-size:1.08rem;letter-spacing:-.03em;line-height:1}
+  .pcard .pm .pv.hi{color:var(--roas-high)} .pcard .pm .pv.mid{color:var(--roas-mid)} .pcard .pm .pv.lo{color:var(--roas-low)}
+  .pcard .pc-body{padding:12px 17px 15px;font-size:.87rem;color:var(--ink-soft);line-height:1.55;flex:1}
+  .pcard .pc-body b{color:var(--ink)}
+  .pcard.lead{border-color:var(--roas-high);box-shadow:0 0 0 1px var(--roas-high),var(--shadow)}
+  .pcard.lead .pc-top{background:var(--roas-high-bg)}
+
+  /* 분석 인사이트 카드 */
+  .insight{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent0);
+    border-radius:0 12px 12px 0;padding:16px 20px;margin-top:14px;box-shadow:var(--shadow)}
+  .insight .ih{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+  .insight .ih .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    background:var(--accent0-soft);color:var(--accent0);font-size:.9rem;flex:none}
+  .insight .ih .it{font-weight:800;font-size:.96rem;letter-spacing:-.02em;color:var(--ink)}
+  .insight .ih .ib{margin-left:auto;font-family:var(--mono);font-weight:500;font-size:.78rem;
+    color:#fff;background:var(--accent0);padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .insight p{font-size:.89rem;line-height:1.6;margin:0 0 9px}
+  .insight p:last-child{margin-bottom:0}
+  .insight p b{color:var(--ink)}
+  .insight .ev{display:flex;gap:9px;align-items:baseline;font-size:.85rem;color:var(--ink-soft);
+    padding:9px 12px;background:var(--paper-2);border-radius:9px;margin-top:4px;line-height:1.5}
+  .insight .ev .k{font-weight:700;color:var(--accent0);white-space:nowrap;font-size:.72rem;
+    letter-spacing:.04em;text-transform:uppercase;flex:none;padding-top:1px}
+  .insight .take{margin-top:11px;font-size:.86rem;line-height:1.55;color:var(--ink);
+    padding-top:10px;border-top:1px dashed var(--line)}
+  .insight .take b{color:var(--accent0)}
+  .insight.i-pa{border-left-color:var(--sec03)}
+  .insight.i-pa .ih .ic{background:#f0ebfa;color:var(--sec03)} .insight.i-pa .ih .ib{background:var(--sec03)}
+  .insight.i-pa .ev .k{color:var(--sec03)} .insight.i-pa .take b{color:var(--sec03)}
+
+  /* 제품별 고효율 소재 토글 */
+  details.mat-toggle{margin:14px 0 0;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+  details.mat-toggle>summary{display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+    padding:12px 14px;font-size:.84rem;font-weight:700;letter-spacing:.02em;color:var(--ink)}
+  details.mat-toggle>summary::-webkit-details-marker{display:none}
+  details.mat-toggle>summary::marker{content:""}
+  details.mat-toggle>summary:hover{background:#f7f9fc}
+  details.mat-toggle>summary .gi{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;
+    font-size:.72rem;font-weight:700;color:#fff;flex:none;background:var(--sec02)}
+  details.mat-toggle>summary .gi.pk{background:var(--sec04)}
+  details.mat-toggle>summary .gi.np{background:var(--sec03)}
+  details.mat-toggle>summary .gi.hp{background:var(--sec06)}
+  details.mat-toggle>summary .tg{margin-left:auto;flex:none;font-family:var(--mono);font-size:1rem;color:var(--ink-soft)}
+  details.mat-toggle>summary .tg::after{content:"+"}
+  details.mat-toggle[open]>summary{border-bottom:1px solid var(--line)}
+  details.mat-toggle[open]>summary .tg::after{content:"\2212"}
+  details.mat-toggle .tbl-wrap{margin:0;border:none;border-radius:0;box-shadow:none}
+  
+  /* takeaways — 개조식 헤드라인 + 근거행 */
+  ul.takeaways li .tk-h{display:block;font-weight:700;color:var(--ink);margin-bottom:5px}
+  ul.takeaways li .tk-e{display:block;font-size:.86rem;color:var(--ink-soft);line-height:1.55;padding-left:9px;position:relative}
+  ul.takeaways li .tk-e::before{content:"–";position:absolute;left:0;color:var(--line-strong,var(--ink-soft))}
+  
+  /* 개조식 근거 리스트 */
+  .pt-h{display:block;font-weight:700;color:var(--ink);margin:0 0 6px;font-size:.9rem}
+  ul.pt{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+  ul.pt li{position:relative;padding-left:12px;font-size:.87rem;line-height:1.6;color:var(--ink)}
+  ul.pt li::before{content:"·";position:absolute;left:2px;font-weight:700;color:var(--ink-soft)}
+  
+  /* 8월 방향 카드 — 여백 확대 */
+  .ms-card.airy{padding:16px 19px 18px}
+  .ms-card.airy ul{gap:12px;font-size:.88rem}
+  .ms-card.airy li{padding-left:15px;line-height:1.6;color:var(--ink)}
+  .ms-card.airy li .sub{display:block;font-size:.82rem;color:var(--ink-soft);margin-top:3px;line-height:1.55}
+  
+  /* GFA 소재 이미지 그리드 */
+  .shot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .shot-grid figure{margin:0}
+  .shot-grid figcaption{font-size:.74rem;color:#8a96a6;margin-top:7px;line-height:1.5}
+  @media(max-width:760px){.shot-grid{grid-template-columns:1fr}}
+  
+  .roas-mid{color:var(--roas-mid);font-weight:500}
+
+  .vid-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+  .vid-grid figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+  .vid-grid video,.vid-grid img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:center;display:block;background:#000}
+  .vid-grid figcaption{padding:9px 11px 12px;font-size:.76rem;color:var(--ink-soft);line-height:1.45}
+  .vid-grid figcaption b{color:var(--ink);display:block;font-size:.82rem;margin-bottom:3px}
+  @media(max-width:760px){.vid-grid{grid-template-columns:repeat(2,1fr)}}
+  .shot-grid{margin-top:12px}
+  .shot-grid figure{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+  .shot-grid img{width:100%;height:auto;display:block;max-height:420px;object-fit:cover;object-position:top}
+  .shot-grid figcaption{padding:10px 12px 13px;margin-top:0}
+  .shot-grid figcaption b{color:var(--ink);display:block;font-size:.82rem;margin-bottom:3px}
+  .qty{font-family:var(--mono);font-weight:500;font-size:.82rem}
+  details.tgl{margin:30px 0 0}
+  details.tgl>summary{list-style:none;cursor:pointer;padding-left:54px;font-weight:700;font-size:1.02rem;
+    letter-spacing:-.02em;color:var(--ink);display:flex;align-items:baseline;gap:9px;user-select:none;flex-wrap:wrap}
+  details.tgl>summary::-webkit-details-marker{display:none}
+  details.tgl>summary::before{content:"\25B8";color:var(--accent0);font-size:.9rem;flex:none;
+    transition:transform .18s ease;display:inline-block;transform-origin:35% 55%}
+  details.tgl[open]>summary::before{transform:rotate(90deg)}
+  details.tgl>summary:focus-visible{outline:2px solid var(--accent0);outline-offset:3px;border-radius:4px}
+  details.tgl>summary .tglc{font-size:.82rem;color:var(--ink-soft);font-weight:500;letter-spacing:0}
+  details.tgl .tgl-body{margin-top:11px}
+  @media(max-width:680px){details.tgl>summary{padding-left:0}}
+  @media(prefers-reduced-motion:reduce){.rv{animation:none;opacity:1;transform:none}details.tgl>summary::before{transition:none}}
+
+  .input-cell{background:#fffdf7;color:#b08900;font-style:italic}
+  .kpi-banner .cell .v.input-cell{background:transparent;border-bottom:1px dashed #d9b45c;font-style:normal}
+  [contenteditable]:focus{outline:none;background:#fff8e1;box-shadow:inset 0 0 0 2px var(--sec06)}
+  li.input-cell{list-style:none}
+  .act-card li .txt .input-cell{padding:0 6px;border-radius:5px}
+  tbody td .input-cell{display:inline-block;padding:0 5px;border-radius:4px}
+  code{font-family:var(--mono);font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+  .tbl-wrap a{color:var(--accent0);font-weight:600;text-decoration:none;border-bottom:1px solid var(--accent0)}
+
+  .pcard .pc-body ul.pt{gap:9px}
+  .pcard .pc-body ul.pt li{font-size:.86rem;line-height:1.6;color:var(--ink-soft);text-wrap:pretty}
+  .pcard .pc-body ul.pt li b{color:var(--ink)}
+  .kpi-banner .cell .best{margin-top:7px;font-size:.78rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;line-height:1.35}
+  .kpi-banner .cell .best span{display:block;font-weight:500;font-size:.72rem;color:var(--ink-soft);margin-top:3px;font-family:var(--mono)}
+  .pcard .pc-body .psub{display:block;font-size:.8rem;color:#8a96a6;margin-top:3px;line-height:1.5}
+
+  /* ---------- 담당 구분 뱃지 ---------- */
+  .tag-b{display:inline-block;padding:1.5px 8px;border-radius:5px;font-family:var(--font);
+    font-size:.7rem;font-weight:700;letter-spacing:-.01em;line-height:1.5;vertical-align:middle;
+    white-space:nowrap;border:1px solid transparent}
+  .tag-b.req{background:#fdeef5;color:var(--sec07);border-color:#f5cfe2}
+  .tag-b.inn{background:var(--accent0-soft);color:var(--accent0);border-color:#cfe0f1}
+  .tag-b.shoot{background:#f3edfb;color:var(--sec03);border-color:#ddd0f0}
+  .ms-card ul li .tag-b{margin-right:5px}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:14px 0 4px;
+    font-size:.78rem;color:var(--ink-soft)}
+  .legend span.lg{display:inline-flex;align-items:center;gap:6px}
+
+  /* ---------- 이슈 공유 ---------- */
+  .issue-grid{display:grid;grid-template-columns:1fr 240px;gap:26px;align-items:start}
+  .issue-list{display:flex;flex-direction:column;gap:14px}
+  .issue{border:1px solid var(--line);border-radius:10px;padding:15px 17px;background:#fff}
+  .issue .ih{display:flex;align-items:center;gap:8px;font-family:var(--font);font-weight:700;
+    font-size:.94rem;color:var(--ink);margin-bottom:6px}
+  .issue .inum{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;
+    border-radius:5px;background:var(--sec07);color:#fff;font-size:.72rem;font-weight:700;flex:0 0 auto}
+  .issue p{margin:0;font-size:.88rem;color:var(--ink-soft);line-height:1.65}
+  .issue a{color:var(--accent0);text-decoration:none;border-bottom:1px solid #cfe0f1;
+    font-size:.84rem;word-break:break-all}
+  .issue a:hover{border-bottom-color:var(--accent0)}
+  .ev{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ev img{display:block;width:100%;height:auto}
+  .ev .cap{padding:9px 11px;font-size:.76rem;color:var(--ink-soft);line-height:1.55;
+    border-top:1px solid var(--line);background:var(--paper)}
+  @media(max-width:680px){.issue-grid{grid-template-columns:1fr}}
+
+  .s8 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec01);margin-right:7px}
+  /* ---------- 이미지 소재 갤러리 ---------- */
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:4px}
+  .gcard{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .gcard img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+  .gcard .gc{padding:9px 10px 11px}
+  .gcard .gt{font-family:var(--font);font-size:.8rem;font-weight:700;color:var(--ink);
+    line-height:1.4;margin-bottom:3px}
+  .gcard .gm{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);line-height:1.5}
+  .gcard .gm b{font-weight:700;color:var(--roas-high)}
+  @media(max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.gal{grid-template-columns:1fr}}
+
+td.memo{color:var(--ink-soft);font-size:.85em}
+.cps{color:var(--sec01);font-weight:800;margin-right:2px}
+.band{margin-top:22px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="kicker">Marketing Team 1 · Weekly Content Report</div>
+    <h1>8월 <span class="yr">4주차</span> 콘텐츠 성과 보고</h1>
+    <p class="sub">집계 기간 2026.08.24~08.30 · META &amp; GFA 통합. GFA는 논타겟 기준이며, 콘텐츠파트 소재를 대상으로 한다. 타팀 소재는 섹션 3에 <span class="cps">★</span> 없는 행으로 구분했다.</p>
+    <div class="kpi-banner">
+      <div class="cell"><div class="lbl">광고비</div><div class="v">37,745,176</div></div>
+      <div class="cell"><div class="lbl">매출</div><div class="v">94,853,355</div></div>
+      <div class="cell"><div class="lbl">ROAS</div><div class="v">251%</div></div>
+      <div class="cell"><div class="lbl">최고 효율 소재</div><div class="v">839%</div><div class="best">힐러쌤공구_9만원대까지_I29<span>윤바다 · 목베개V2 · 175만원 / 1,463만원</span></div></div>
+    </div>
+  </header>
+
+  <section class="rv s1" style="animation-delay:.05s">
+    <div class="sec-head"><span class="sec-num">1</span><h2>콘텐츠파트 인원 성과</h2></div>
+    <p class="sec-desc">META 32,529,122원 · GFA 5,216,054원 — 힐러쌤 공구가 팀 매출의 62%를 만들었다</p>
+
+    <div class="pcard-grid"><div class="pcard lead">
+  <div class="pc-top"><div class="pc-name">윤바다</div><div class="pc-role">매출·효율 1위</div></div>
+  <div class="pc-metrics">
+    <div class="pm"><div class="pl">광고비</div><div class="pv">1124만</div></div>
+    <div class="pm"><div class="pl">매출</div><div class="pv">4513만</div></div>
+    <div class="pm"><div class="pl">ROAS</div><div class="pv hi">401%</div></div>
+  </div>
+  <div class="pc-body"><ul class="pt">
+<li>힐러쌤 공구 이미지 3건이 매출의 <b>72%</b><br>9만원대까지 <b>175만원 838%</b> · 이광고넘기면비싸짐 <b>177만원 786%</b> · 역대네고왔다 <b>72만원 539%</b></li>
+<li>3주차 294만원 135% → 4주차 <b>1124만원 401%</b><span class="psub">광고비 3.8배, ROAS 2.9배. 3주차에 정한 "이미지·단컷 메인" 배치가 그대로 맞았다</span></li>
+<li>공구 제외 소재도 견조<br>도수치료정책호소 <b>58만원 235%</b> · 사과문_18차완판 <b>56만원 239%</b></li>
+<li>다만 매출 0인 신규 할인 2건<span class="psub">팔꿈치 사과문_5차완판 31만원 · 카드뉴스 도수치료 13만원</span></li>
+</ul></div>
+</div><div class="pcard ">
+  <div class="pc-top"><div class="pc-name">김승희</div><div class="pc-role">광고비 1위</div></div>
+  <div class="pc-metrics">
+    <div class="pm"><div class="pl">광고비</div><div class="pv">1908만</div></div>
+    <div class="pm"><div class="pl">매출</div><div class="pv">3418만</div></div>
+    <div class="pm"><div class="pl">ROAS</div><div class="pv hi">179%</div></div>
+  </div>
+  <div class="pc-body"><ul class="pt">
+<li>팀 광고비의 <b>51%</b>를 운용<br>3주차 200% → 4주차 <b>179%</b>로 하락</li>
+<li>키네외국결합 계열에 예산 집중<span class="psub">A 313만원 154% · B 231만원 145% · C 39만원 201%<br>3주차 A 178% · B 258%에서 둘 다 떨어졌다</span></li>
+<li>키네메디칼벤치A는 <b>128만원 82%</b><br>50만↑ 소재 중 팀 내 최저</li>
+<li>버틴 건 목베개+ 비밀링크 <b>147만원 206%</b><br>PA에이든팍 거북목훅 <b>176만원 232%</b></li>
+</ul></div>
+</div><div class="pcard ">
+  <div class="pc-top"><div class="pc-name">김희진</div><div class="pc-role">신규 소구점 주도</div></div>
+  <div class="pc-metrics">
+    <div class="pm"><div class="pl">광고비</div><div class="pv">520만</div></div>
+    <div class="pm"><div class="pl">매출</div><div class="pv">1056만</div></div>
+    <div class="pm"><div class="pl">ROAS</div><div class="pv hi">203%</div></div>
+  </div>
+  <div class="pc-body"><ul class="pt">
+<li>일자목_목젖힘이 최대 건<br><b>163만원 201%</b> · 8/28 진입 후 바로 규모화</li>
+<li>3주차 방향성 확정 건 실행<br>거북목썰 8억홀란드 <b>48만원 339%</b></li>
+<li>이미지 셀올로지벤치 유지<br>긴급공고 <b>109만원 253%</b> · 재입고없음 27만원 98%</li>
+<li>팔꿈치 계열은 부진<span class="psub">좌골신경통벤치 30만원 · 마비컵쏟음 22만원 모두 매출 0</span></li>
+</ul></div>
+</div><div class="pcard ">
+  <div class="pc-top"><div class="pc-name">최현진</div><div class="pc-role">소수 정예</div></div>
+  <div class="pc-metrics">
+    <div class="pm"><div class="pl">광고비</div><div class="pv">223만</div></div>
+    <div class="pm"><div class="pl">매출</div><div class="pv">499만</div></div>
+    <div class="pm"><div class="pl">ROAS</div><div class="pv hi">224%</div></div>
+  </div>
+  <div class="pc-body"><ul class="pt">
+<li>META 소재 <b>4건</b>뿐인데 효율은 팀 2위</li>
+<li>목베개+ 비밀링크_경추베개 <b>131만원 221%</b><span class="psub">3주차 75만원 220%에서 예산을 1.7배 늘렸는데 효율 그대로</span></li>
+<li>수면장애_수면제베개 <b>22만원 269%</b><br>3주차 재점화 판단이 유지됐다</li>
+<li>GFA 68만원 219%<span class="psub">흉쇄유돌근·굽은목 비밀링크 2건이 대부분</span></li>
+</ul></div>
+</div></div>
+
+    <div class="tbl-wrap" style="margin-top:18px">
+      <table>
+        <caption>담당자별 통합 성과 (8월 4주차)</caption>
+        <thead><tr><th>담당</th><th>광고비</th><th>비중</th><th>매출</th><th>ROAS</th><th>META</th><th>GFA</th><th>소재</th></tr></thead>
+        <tbody><tr><td>김승희</td><td>19,081,485</td><td>51%</td><td>34,175,360</td><td><span class="roas roas-high">179%</span></td><td>17,982,752</td><td>1,098,733</td><td>73</td></tr><tr><td>윤바다</td><td>11,242,701</td><td>30%</td><td>45,125,700</td><td><span class="roas roas-high">401%</span></td><td>8,181,754</td><td>3,060,947</td><td>71</td></tr><tr><td>김희진</td><td>5,195,942</td><td>14%</td><td>10,560,055</td><td><span class="roas roas-high">203%</span></td><td>4,820,003</td><td>375,939</td><td>50</td></tr><tr><td>최현진</td><td>2,225,048</td><td>6%</td><td>4,992,240</td><td><span class="roas roas-high">224%</span></td><td>1,544,613</td><td>680,435</td><td>10</td></tr><tr><td>전찬희</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr class="total"><td>합계</td><td>37,745,176</td><td>100%</td><td>94,853,355</td><td>251%</td><td>32,529,122</td><td>5,216,054</td><td>204</td></tr></tbody>
+      </table>
+    </div>
+    <p class="hint">전찬희 담당 소재가 원본에 없다. 3주차에 전찬희 PA로 집계했던 팔꿈치·목베개V2·골반마 PA 라인이 이번 원본에는 전부 <b>김익환</b>으로 표기되어 있어 담당자별 표에서 제외했다. 목베개+ 디벨롭_비밀링크 2건도 3주차 김희진 → 4주차 <b>김도현</b>으로 바뀌었다. 두 건 모두 확인이 필요하다.</p>
+
+  </section>
+
+  <section class="rv s2" style="animation-delay:.1s">
+    <div class="sec-head"><span class="sec-num">2</span><h2>매체 · 제품별 성과</h2></div>
+    <p class="sec-desc">목베개V2가 286%로 견인 · 팔꿈치는 META 87% · GFA 78%로 양쪽 모두 무너졌다</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>META 제품별 성과 (8월 4주차) — 콘텐츠파트 · 아임웹 매출 기준</caption>
+        <thead><tr><th>제품</th><th>광고비</th><th>매출</th><th>ROAS</th><th>소재</th><th>3주차 ROAS</th></tr></thead>
+        <tbody><tr><td>목베개V2</td><td>26,690,634</td><td>76,214,715</td><td><span class="roas roas-high">286%</span></td><td>88</td><td>201%</td></tr><tr><td>목베개+</td><td>2,811,824</td><td>6,088,840</td><td><span class="roas roas-high">217%</span></td><td>3</td><td>273%</td></tr><tr><td>팔꿈치</td><td>2,089,873</td><td>1,815,000</td><td><span class="roas roas-low">87%</span></td><td>17</td><td>151%</td></tr><tr><td>허편케</td><td>936,791</td><td>533,000</td><td><span class="roas roas-low">57%</span></td><td>30</td><td>42%</td></tr><tr class="total"><td>합계</td><td>32,529,122</td><td>84,651,555</td><td>260%</td><td>138</td><td>201%</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:18px">
+      <table>
+        <caption>GFA 논타겟 제품별 성과 (8월 4주차) — 매체 매출 기준</caption>
+        <thead><tr><th>제품</th><th>광고비</th><th>매출</th><th>ROAS</th><th>소재</th></tr></thead>
+        <tbody><tr><td>목베개V2</td><td>3,497,972</td><td>6,543,600</td><td><span class="roas roas-high">187%</span></td><td>26</td></tr><tr><td>팔꿈치</td><td>1,024,837</td><td>804,000</td><td><span class="roas roas-low">78%</span></td><td>30</td></tr><tr><td>목베개+</td><td>693,245</td><td>2,296,200</td><td><span class="roas roas-high">331%</span></td><td>8</td></tr><tr><td>허편케</td><td>0</td><td>558,000</td><td>—</td><td>2</td></tr><tr class="total"><td>합계</td><td>5,216,054</td><td>10,201,800</td><td>196%</td><td>66</td></tr></tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <section class="rv s3" style="animation-delay:.15s">
+    <div class="sec-head"><span class="sec-num">3</span><h2>META 고효율 소재</h2></div>
+
+    <h3 class="sub-h">광고비 100만원 이상</h3>
+    <div class="tbl-wrap">
+      <table>
+        <caption>META 고효율 소재 · 100만원↑ 구간 — 22소재 · 광고비 43,566,138원 · 매출 123,262,319원 · ROAS 283%</caption>
+        <thead><tr><th>소재명</th><th>제품</th><th>담당</th><th>형식</th><th>광고비</th><th>아임웹 매출</th><th>ROAS</th></tr></thead>
+        <tbody><tr><td>rvi_질병_경추감압_목디스크B</td><td>목베개+</td><td>문규원</td><td>RVI</td><td>3,917,660</td><td>6,984,559</td><td><span class="roas roas-high">178%</span></td></tr><tr><td>할인_PA_힐러쌤_PA09</td><td>목베개V2</td><td>김익환</td><td>PA</td><td>3,732,657</td><td>18,992,400</td><td><span class="roas roas-high">509%</span></td></tr><tr><td>vi_디벨롭_30일체험_251128V3</td><td>목베개+</td><td>조인교</td><td>디벨롭</td><td>3,135,562</td><td>6,139,484</td><td><span class="roas roas-high">196%</span></td></tr><tr><td><span class="cps">★</span>질병_버섯목_키네외국결합A(목뒤혹ENG)_V19</td><td>목베개V2</td><td>김승희</td><td>VI</td><td>3,126,416</td><td>4,808,000</td><td><span class="roas roas-high">154%</span></td></tr><tr><td><span class="cps">★</span>질병_일자목_신금동카피캣A(수면)_V35</td><td>목베개V2</td><td>김승희</td><td>VI</td><td>2,949,444</td><td>6,167,900</td><td><span class="roas roas-high">209%</span></td></tr><tr><td>질병_일자목_부러지기_V16</td><td>목베개V2</td><td>윤지민</td><td>VI</td><td>2,917,716</td><td>7,582,900</td><td><span class="roas roas-high">260%</span></td></tr><tr><td>목_7일편두통_B7일CTA_V59</td><td>목베개V2</td><td>박연1</td><td>VI</td><td>1,975,812</td><td>4,518,091</td><td><span class="roas roas-high">229%</span></td></tr><tr><td><span class="cps">★</span>힐러쌤공구_이광고넘기면비싸짐_I26</td><td>목베개V2</td><td>윤바다</td><td>이미지</td><td>1,773,944</td><td>13,950,200</td><td><span class="roas roas-high">786%</span></td></tr><tr><td>디벨롭_비밀링크_경추협착증신호</td><td>목베개+</td><td>김도현</td><td>디벨롭</td><td>1,762,328</td><td>3,858,000</td><td><span class="roas roas-high">219%</span></td></tr><tr><td><span class="cps">★</span>VI_PA에이든팍_고효율소재적용D(거북목훅)</td><td>목베개V2</td><td>김승희</td><td>VI</td><td>1,760,817</td><td>4,091,006</td><td><span class="roas roas-high">232%</span></td></tr><tr><td><span class="cps">★</span>힐러쌤공구_9만원대까지_I29</td><td>목베개V2</td><td>윤바다</td><td>이미지</td><td>1,743,925</td><td>14,625,600</td><td><span class="roas roas-high">839%</span></td></tr><tr><td><span class="cps">★</span>질병_일자목_목젖힘_V94</td><td>목베개V2</td><td>김희진</td><td>VI</td><td>1,629,477</td><td>3,281,000</td><td><span class="roas roas-high">201%</span></td></tr><tr><td>질병_허리협착증_가격비교_V44</td><td>허편케</td><td>김형규</td><td>VI</td><td>1,530,944</td><td>3,530,000</td><td><span class="roas roas-high">231%</span></td></tr><tr><td>RVI_흉쇄유돌근때문_BPS</td><td>목베개V2</td><td>박연1</td><td>RVI</td><td>1,496,922</td><td>3,036,701</td><td><span class="roas roas-high">203%</span></td></tr><tr><td><span class="cps">★</span>VI_비밀링크_30일체험놓치면끝</td><td>목베개+</td><td>김승희</td><td>VI</td><td>1,471,432</td><td>3,038,000</td><td><span class="roas roas-high">206%</span></td></tr><tr><td>팔꿈치_핵심종이인형_DPS_V60</td><td>팔꿈치</td><td>박연1</td><td>VI</td><td>1,363,222</td><td>2,049,001</td><td><span class="roas roas-high">150%</span></td></tr><tr><td><span class="cps">★</span>IM_비밀링크_경추베개</td><td>목베개+</td><td>최현진</td><td>IM</td><td>1,312,659</td><td>2,906,840</td><td><span class="roas roas-high">221%</span></td></tr><tr><td>질병_좌골신경통2_여기_V12</td><td>허편케</td><td>윤지민</td><td>VI</td><td>1,294,574</td><td>2,199,000</td><td><span class="roas roas-high">170%</span></td></tr><tr><td><span class="cps">★</span>VI_일자목_머리떨굼C(공감스트레칭)</td><td>목베개V2</td><td>김승희</td><td>VI</td><td>1,266,747</td><td>2,709,582</td><td><span class="roas roas-high">214%</span></td></tr><tr><td>제품력_직원_PA자존심_V50</td><td>팔꿈치</td><td>윤지민</td><td>VI</td><td>1,241,886</td><td>2,116,000</td><td><span class="roas roas-high">170%</span></td></tr><tr><td><span class="cps">★</span>대세감_셀올로지벤치_긴급공고_I07</td><td>목베개V2</td><td>김희진</td><td>이미지</td><td>1,091,033</td><td>2,758,055</td><td><span class="roas roas-high">253%</span></td></tr><tr><td>중년여성내레30일_A</td><td>허편케</td><td>박연1</td><td>VI</td><td>1,070,961</td><td>3,920,000</td><td><span class="roas roas-high">366%</span></td></tr></tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-h">광고비 50만~100만원</h3>
+    <div class="tbl-wrap">
+      <table>
+        <caption>META 고효율 소재 · 50만~100만원 구간 — 19소재 · 광고비 12,393,715원 · 매출 29,052,300원 · ROAS 234%</caption>
+        <thead><tr><th>소재명</th><th>제품</th><th>담당</th><th>형식</th><th>광고비</th><th>아임웹 매출</th><th>ROAS</th></tr></thead>
+        <tbody><tr><td>디벨롭_비밀링크_목디스크병원</td><td>목베개+</td><td>김도현</td><td>디벨롭</td><td>935,644</td><td>1,683,000</td><td><span class="roas roas-high">180%</span></td></tr><tr><td>RVI_흉쇄유돌근때문_C베개형목견인기</td><td>목베개V2</td><td>박연1</td><td>RVI</td><td>826,745</td><td>1,670,900</td><td><span class="roas roas-high">202%</span></td></tr><tr><td>VI_헬스엘보_D충격파비슷</td><td>팔꿈치</td><td>박연1</td><td>VI</td><td>779,739</td><td>1,623,000</td><td><span class="roas roas-high">208%</span></td></tr><tr><td>팔꿈치_PA_김민우_PA02</td><td>팔꿈치</td><td>김익환</td><td>PA</td><td>754,016</td><td>2,699,000</td><td><span class="roas roas-high">358%</span></td></tr><tr><td><span class="cps">★</span>힐러쌤공구_역대네고왔다_I27</td><td>목베개V2</td><td>윤바다</td><td>이미지</td><td>717,484</td><td>3,869,300</td><td><span class="roas roas-high">539%</span></td></tr><tr><td>RVI_좌골신경통_평생_MKT</td><td>허편케</td><td>윤지민</td><td>RVI</td><td>700,579</td><td>1,065,000</td><td><span class="roas roas-high">152%</span></td></tr><tr><td>VI_통증병원훅_A공감형</td><td>허편케</td><td>박연1</td><td>VI</td><td>698,523</td><td>1,415,000</td><td><span class="roas roas-high">203%</span></td></tr><tr><td>질병_전문가_6CM_V02_MKT</td><td>허편케</td><td>황서아</td><td>VI</td><td>691,729</td><td>1,467,800</td><td><span class="roas roas-high">212%</span></td></tr><tr><td>질병_사각근2_이런모양_V72</td><td>목베개V2</td><td>윤지민</td><td>VI</td><td>684,707</td><td>1,539,900</td><td><span class="roas roas-high">225%</span></td></tr><tr><td>질병_좌골신경통UGC_PA절대MKT_V31</td><td>허편케</td><td>윤지민</td><td>VI</td><td>679,067</td><td>1,440,000</td><td><span class="roas roas-high">212%</span></td></tr><tr><td><span class="cps">★</span>대체_A급디벨롭_셀프도수_I11</td><td>목베개V2</td><td>윤바다</td><td>이미지</td><td>590,952</td><td>894,000</td><td><span class="roas roas-high">151%</span></td></tr><tr><td><span class="cps">★</span>후기_도수치료정책호소_횟수제한_I19</td><td>목베개V2</td><td>윤바다</td><td>이미지</td><td>584,759</td><td>1,375,900</td><td><span class="roas roas-high">235%</span></td></tr><tr><td>팔꿈치_아내골프엘보_PACPS남편호명_V24</td><td>팔꿈치</td><td>박연1</td><td>VI</td><td>571,634</td><td>1,587,000</td><td><span class="roas roas-high">278%</span></td></tr><tr><td><span class="cps">★</span>할인_사과문_18차완판기념_I18</td><td>목베개V2</td><td>윤바다</td><td>이미지</td><td>555,858</td><td>1,327,900</td><td><span class="roas roas-high">239%</span></td></tr><tr><td>RVI_고효율플로우_호기심</td><td>목베개V2</td><td>김민성</td><td>RVI</td><td>545,896</td><td>856,900</td><td><span class="roas roas-high">157%</span></td></tr><tr><td>목_역후FOMO_B집관리CTA_V32</td><td>목베개V2</td><td>박연1</td><td>VI</td><td>536,514</td><td>1,909,900</td><td><span class="roas roas-high">356%</span></td></tr><tr><td>질병_여성중년토크_허리디스크_V33</td><td>허편케</td><td>김보람</td><td>VI</td><td>525,498</td><td>1,063,800</td><td><span class="roas roas-high">202%</span></td></tr><tr><td>목_7일편두통_A7일편두통_V58</td><td>목베개V2</td><td>박연1</td><td>VI</td><td>509,118</td><td>789,000</td><td><span class="roas roas-high">155%</span></td></tr><tr><td>질병_테니스엘보_PA집중케어_V27</td><td>팔꿈치</td><td>김형규</td><td>VI</td><td>505,253</td><td>775,000</td><td><span class="roas roas-high">153%</span></td></tr></tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-h">기준 미달 · 광고비 100만원 이상</h3>
+    <div class="tbl-wrap">
+      <table>
+        <caption>ROAS 150% 미만 · 100만원↑ 구간 — 6소재 · 광고비 12,891,819원 · 매출 17,030,932원 · ROAS 132%</caption>
+        <thead><tr><th>소재명</th><th>제품</th><th>담당</th><th>광고비</th><th>아임웹 매출</th><th>ROAS</th></tr></thead>
+        <tbody><tr><td>RVI_아버지목_A날렸을거예요</td><td>목베개V2</td><td>박연1</td><td>3,860,209</td><td>5,670,800</td><td><span class="roas roas-mid">147%</span></td></tr><tr><td>RVI_편두통_질병나열</td><td>목베개V2</td><td>윤지민</td><td>3,145,627</td><td>4,145,800</td><td><span class="roas roas-mid">132%</span></td></tr><tr><td><span class="cps">★</span>질병_버섯목_키네외국결합B(마사지ENG)_V20</td><td>목베개V2</td><td>김승희</td><td>2,307,160</td><td>3,334,900</td><td><span class="roas roas-mid">145%</span></td></tr><tr><td><span class="cps">★</span>VI_버섯목_키네메디칼벤치A(인체훅)</td><td>목베개V2</td><td>김승희</td><td>1,281,143</td><td>1,044,432</td><td><span class="roas roas-low">82%</span></td></tr><tr><td>VI_통증tk_D운동선수</td><td>팔꿈치</td><td>박연1</td><td>1,195,339</td><td>1,558,000</td><td><span class="roas roas-mid">130%</span></td></tr><tr><td>팔꿈치_PA_김현정_PA07</td><td>팔꿈치</td><td>김익환</td><td>1,102,341</td><td>1,277,000</td><td><span class="roas roas-mid">116%</span></td></tr></tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-h">기준 미달 · 광고비 50만~100만원</h3>
+    <div class="tbl-wrap">
+      <table>
+        <caption>ROAS 150% 미만 · 50만~100만원 구간 — 4소재 · 광고비 2,948,091원 · 매출 2,990,000원 · ROAS 101%</caption>
+        <thead><tr><th>소재명</th><th>제품</th><th>담당</th><th>광고비</th><th>아임웹 매출</th><th>ROAS</th></tr></thead>
+        <tbody><tr><td>목_경추정렬AI_PAC10년편두통MKT_V55</td><td>목베개V2</td><td>박연1</td><td>895,340</td><td>1,182,000</td><td><span class="roas roas-mid">132%</span></td></tr><tr><td>뒷목_편두통썰_A편두통원인MKT_V42</td><td>목베개V2</td><td>박연1</td><td>871,869</td><td>525,000</td><td><span class="roas roas-low">60%</span></td></tr><tr><td>팔꿈치_핵심종이인형_A핵심원리_V57</td><td>팔꿈치</td><td>박연1</td><td>657,197</td><td>982,000</td><td><span class="roas roas-mid">149%</span></td></tr><tr><td>권위_혈액순환_물리치료_V48</td><td>팔꿈치</td><td>윤지민</td><td>523,685</td><td>301,000</td><td><span class="roas roas-low">57%</span></td></tr></tbody>
+      </table>
+    </div>
+    <p class="hint">편두통썰_A편두통원인 60% · 혈액순환_물리치료 57%는 정리 판단이 필요하다. 콘텐츠파트 건은 김승희 2건(키네외국결합B 145% · 키네메디칼벤치A 82%).</p>
+
+  </section>
+
+  <section class="rv s4" style="animation-delay:.2s">
+    <div class="sec-head"><span class="sec-num">4</span><h2>힐러쌤 공구 (8/24~8/30)</h2></div>
+    <p class="sec-desc">목마사지베개V2 · 오픈 7일차 · META 8,728,921원 / 56,293,940원 · ROAS 645%</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>힐러쌤 공구 소재별 성과 (META · 8/24~8/30)</caption>
+        <thead><tr><th>소재명</th><th>담당</th><th>광고비</th><th>매출</th><th>ROAS</th></tr></thead>
+        <tbody><tr><td>이광고넘기면비싸짐_I26</td><td>윤바다</td><td>1,773,944</td><td>13,950,200</td><td><span class="roas roas-high">786%</span></td></tr><tr><td>9만원대까지_I29</td><td>윤바다</td><td>1,745,892</td><td>14,625,600</td><td><span class="roas roas-high">838%</span></td></tr><tr><td>역대네고왔다_I27</td><td>윤바다</td><td>717,756</td><td>3,869,300</td><td><span class="roas roas-high">539%</span></td></tr><tr><td>15만원할인_I21</td><td>김승희</td><td>387,251</td><td>1,631,700</td><td><span class="roas roas-high">421%</span></td></tr><tr><td>PA_힐러쌤_PA09</td><td>김익환</td><td>3,732,657</td><td>18,992,400</td><td><span class="roas roas-high">509%</span></td></tr><tr><td>셀프도수치료_I23</td><td>김승희</td><td>76,901</td><td>996,040</td><td><span class="roas roas-high">1295%</span></td></tr><tr><td>비밀링크_I20</td><td>김승희</td><td>97,860</td><td>775,200</td><td><span class="roas roas-high">792%</span></td></tr><tr><td>힐러쌤특가뜸_I28</td><td>윤바다</td><td>83,695</td><td>775,200</td><td><span class="roas roas-high">926%</span></td></tr><tr><td>놓치면끝나요_I22</td><td>김승희</td><td>62,503</td><td>484,500</td><td><span class="roas roas-high">775%</span></td></tr><tr><td>셀프도수정방형_I24</td><td>김승희</td><td>43,317</td><td>193,800</td><td><span class="roas roas-high">447%</span></td></tr><tr><td>힐러쌤원본_I25</td><td>김승희</td><td>6,880</td><td>0</td><td><span class="roas roas-low">0%</span></td></tr><tr class="total"><td>합계</td><td>—</td><td>8,728,921</td><td>56,293,940</td><td>645%</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="note good"><span class="tag">7일 판정</span><p><b>목표 5,000만원을 7일 만에 넘겼다.</b> META 아임웹 매출 5,629만원 + GFA 312만원. 1일차 126만원에서 시작해 목표의 118%.</p><ul class="tight"><li><b>1일차 판단이 맞았다.</b> "예산을 더 써야 한다"고 적고 실제로 1일차 8만원 → 7일 873만원으로 올렸다. ROAS는 1520% → 645%로 내려왔지만 절대 매출은 45배.</li><li><b>윤바다 이미지 3건이 매출의 58%.</b> 1일차에 소액 테스트였던 9만원대까지·역대네고왔다가 2·3차에서 주력이 됐다.</li><li><b>김익환 PA 힐러쌤이 단일 최대 건</b> — 373만원 509%. 8/29~8/30 하루 100만원대까지 올렸다.</li><li>공구는 팀 전체 매출 9,485만원 중 <b>62%</b>를 차지한다. 공구를 빼면 팀 ROAS는 251% → 약 174% 수준이다.</li></ul></div>
+
+  </section>
+
+  <section class="rv s5" style="animation-delay:.25s">
+    <div class="sec-head"><span class="sec-num">5</span><h2>3주차 방향성 실행 결과</h2></div>
+    <p class="sec-desc">8/25 회의에서 정한 항목이 4주차에 실제로 얼마나 집행됐고 어떤 성과가 났는지</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>방향성 항목별 집행 결과 (8/24~8/30 · META)</caption>
+        <thead><tr><th>항목</th><th>구분</th><th>광고비</th><th>매출</th><th>ROAS</th><th>메모</th></tr></thead>
+        <tbody><tr><td>목베개 · 썰형식 홀란드 확장</td><td><span class="tag-b inn">내부</span></td><td>487,844</td><td>1,616,000</td><td><span class="roas roas-high">331%</span></td><td class="memo">확정 건. 8억홀란드 단독 477,185원 339%</td></tr><tr><td>팔꿈치 · PA 김민우/김현정/김장호</td><td><span class="tag-b inn">내부</span></td><td>1,903,751</td><td>3,976,000</td><td><span class="roas roas-high">209%</span></td><td class="memo">김민우 358% · 김현정 116% · 김장호 소진 4.7만</td></tr><tr><td>허편케 · 해외박사 해외운동법</td><td><span class="tag-b inn">내부</span></td><td>248,140</td><td>401,000</td><td><span class="roas roas-high">162%</span></td><td class="memo">맥길운동 4종 · A/C만 매출 발생</td></tr><tr><td>팔꿈치 · 썰형식 3종</td><td><span class="tag-b req">콘텐츠팀</span></td><td>189,587</td><td>304,000</td><td><span class="roas roas-high">160%</span></td><td class="memo">D본문 152,000 · A골프엘보 152,000</td></tr><tr><td>허편케 · 라움AI인터뷰</td><td><span class="tag-b req">콘텐츠팀</span></td><td>224,813</td><td>264,000</td><td><span class="roas roas-mid">117%</span></td><td class="memo">더러워요훅만 매출 · 나머지 2종 0</td></tr><tr><td>목베개 · CCTV 연출</td><td><span class="tag-b req">콘텐츠팀</span></td><td>275,754</td><td>228,900</td><td><span class="roas roas-low">83%</span></td><td class="memo">고발훅 외 3종 매출 0</td></tr><tr><td>허편케 · 좌골신경통 썰형식 확장</td><td><span class="tag-b req">콘텐츠팀</span></td><td>190,586</td><td>132,000</td><td><span class="roas roas-low">69%</span></td><td class="memo">이거암 1건만 전환</td></tr><tr><td>목베개 · 추석 프로모션</td><td><span class="tag-b inn">내부</span></td><td>215,197</td><td>96,900</td><td><span class="roas roas-low">45%</span></td><td class="memo">8/28 진입 · 3일차</td></tr><tr><td>목베개 · 편두통 소구점 확장</td><td><span class="tag-b inn">내부</span></td><td>424,537</td><td>132,000</td><td><span class="roas roas-low">31%</span></td><td class="memo">천주혈디벨롭 4종 중 D만 전환 1건</td></tr><tr><td>목베개 · 카드뉴스 도수치료</td><td><span class="tag-b inn">내부</span></td><td>130,940</td><td>0</td><td><span class="roas roas-low">0%</span></td><td class="memo">8/27 진입 · 매출 0</td></tr><tr><td>목베개 · 뼈움직임 엑스레이</td><td><span class="tag-b inn">내부</span></td><td>8,238</td><td>0</td><td><span class="roas roas-low">0%</span></td><td class="memo">소액 테스트에 그침</td></tr><tr><td>목베개 · 안면비대칭 촬영</td><td><span class="tag-b req">콘텐츠팀</span></td><td>—</td><td>—</td><td>—</td><td class="memo">집행 없음</td></tr><tr><td>팔꿈치 · 삼각근 소구점</td><td><span class="tag-b inn">내부</span></td><td>—</td><td>—</td><td>—</td><td class="memo">집행 없음</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="note good"><span class="tag">판정</span><p><b>확정 3건 중 2건이 성과를 냈다.</b> 홀란드 썰형식 331%, 팔꿈치 PA 209%. 해외박사는 162%로 기준선 언저리.</p><ul class="tight"><li><b>콘텐츠팀 요청 4건은 전부 기준 미달.</b> 팔꿈치 썰형식 160%만 넘겼고 AI인터뷰 117% · CCTV 83% · 좌골신경통 썰형식 69%. 진입 시점이 8/26~8/28로 늦어 관찰 기간이 3일뿐이라는 점은 감안이 필요하다.</li><li><b>미집행 2건</b> — 안면비대칭 촬영, 팔꿈치 삼각근. 5주차로 이월할지 정리할지 판단이 필요하다.</li><li><b>편두통 확장이 가장 부진.</b> 천주혈디벨롭 4종에 42만원을 썼는데 전환 1건, 31%. 3주차 7일편두통 400%를 근거로 잡은 방향인데 소스를 바꾸니 재현되지 않았다.</li></ul></div>
+
+  </section>
+
+  <section class="rv s6" style="animation-delay:.3s">
+    <div class="sec-head"><span class="sec-num">6</span><h2>PA 콘텐츠 효율</h2></div>
+    <p class="sec-desc">META PA 라인 전체 광고비 7,282,531원 / 매출 25,431,400원 · ROAS 349%</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>META PA 라인별 성과 (8월 4주차) — 광고비 4만↑</caption>
+        <thead><tr><th>라인</th><th>제품</th><th>광고비</th><th>매출</th><th>ROAS</th></tr></thead>
+        <tbody><tr><td>힐러쌤(목베개V2)</td><td>목베개V2</td><td>3,732,657</td><td>18,992,400</td><td><span class="roas roas-high">509%</span></td></tr><tr><td>김현정 PA07</td><td>팔꿈치</td><td>1,102,341</td><td>1,277,000</td><td><span class="roas roas-mid">116%</span></td></tr><tr><td>김민우 PA02</td><td>팔꿈치</td><td>754,016</td><td>2,699,000</td><td><span class="roas roas-high">358%</span></td></tr><tr><td>이화정 PA08</td><td>목베개V2</td><td>448,748</td><td>654,000</td><td><span class="roas roas-mid">146%</span></td></tr><tr><td>이소은 PA04</td><td>목베개V2</td><td>414,627</td><td>1,158,000</td><td><span class="roas roas-high">279%</span></td></tr><tr><td>고관절 PA15분</td><td>허편케</td><td>332,875</td><td>651,000</td><td><span class="roas roas-high">196%</span></td></tr><tr><td>공수아 PA09</td><td>골반마</td><td>284,601</td><td>0</td><td><span class="roas roas-low">0%</span></td></tr><tr><td>김장호 PA05</td><td>팔꿈치</td><td>47,394</td><td>0</td><td><span class="roas roas-low">0%</span></td></tr><tr><td>주성희 PA10</td><td>골반마</td><td>44,072</td><td>0</td><td><span class="roas roas-low">0%</span></td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="note good"><span class="tag">판정</span><p><b>김현정 뒤집힘.</b> 3주차 59만원 280% → 4주차 110만원 116%. 예산 1.9배 늘리면서 효율은 절반 이하로 떨어짐.</p><ul class="tight"><li><b>김민우 유지.</b> 3주차 54만원 201% → 4주차 75만원 358%. PA 라인 중 공구 다음으로 좋음.</li><li><b>골반마 PA 5라인 8일째 매출 0.</b> 광고비 35만원 누적. 3주차에 처음 돌린 건으로 넘겼는데 이번 주도 전환 없음. 정리 판단 필요.</li><li>8/31 신규 진입한 팔꿈치 PA 4차(홍성호·정성민·이인재·이서빈·최유리)와 목베개 힐러쌤 5차는 집계 구간 밖. 5주차에서 확인.</li></ul></div>
+
+  </section>
+
+    <section class="rv s5" style="animation-delay:.35s">
+    <div class="sec-head"><span class="sec-num">7</span><h2>9월 1주차 방향성</h2></div>
+    <p class="sec-desc">9/1 회의 기준 · 체크된 9건이 확정, 7건은 이월</p>
+
+    <div class="kpi-grid" style="margin-top:16px">
+      <div class="kpi green"><div class="lbl">확정</div><div class="val">9<small>건</small></div><div class="delta" style="color:var(--roas-high)">목베개 4 · 팔꿈치 3 · 허편케 2</div></div>
+      <div class="kpi red"><div class="lbl">이월 · 미진행</div><div class="val">7<small>건</small></div><div class="delta" style="color:var(--roas-low)">삼각근은 2주 연속</div></div>
+      <div class="kpi"><div class="lbl">~9/4 아웃풋</div><div class="val">25<small>건</small></div><div class="delta" style="color:var(--ink-soft)">이미지가 15건</div></div>
+      <div class="kpi"><div class="lbl">9월 공구</div><div class="val">3<small>건</small></div><div class="delta" style="color:var(--ink-soft)">9/7 신금동 · 9/9 초이끄 · 김영옥</div></div>
+    </div>
+
+    <div class="grp-label"><span class="gi hi">✓</span>확정 — 9월 1주차 실행</div>
+    <div class="out-grid">
+      <div class="out-card c-neck">
+        <div class="oc-h">목베개<span class="cnt">4건</span></div>
+        <ul>
+          <li><b>버섯목 썰형식</b><span class="t t-rvi">요청</span><br><span class="name-sm">버섯목 154%·145%로 하락 · 썰형식 홀란드 339%. 두 축 결합</span></li>
+          <li><b>힐러쌤 신금동카피캣 영상 카피</b><br><span class="name-sm">신금동카피캣A 209% 플로우를 공구에 적용</span></li>
+          <li><b>해외 AI 소스 — 흉쇄유돌근</b><span class="t t-vi">내부</span><br><span class="name-sm">림프순환 · 얼굴 크기 연결 · 260814_림프순환<br>흉쇄유돌근 BPS 203% · 목견인기 202%</span></li>
+          <li><b>해외박사 — 맥켄지</b><span class="t t-vi">내부</span><br><span class="name-sm">맥길운동 162%에서 인물 확장</span></li>
+        </ul>
+      </div>
+      <div class="out-card c-elbow">
+        <div class="oc-h">팔꿈치<span class="cnt">3건</span></div>
+        <ul>
+          <li><b>김민우 PA 추가 활용</b><span class="t t-pa">PA</span><br><span class="name-sm">4주차 358% · PA 라인 최고<br>헬스엘보 플로우 + 띠배너 결합, 소스만 교체</span></li>
+          <li><b>아버지목 플로우 적용</b><br><span class="name-sm">원본은 4주차 147%로 미달. 3주차 173%에서 계속 하락 중이라 근거 재확인 필요</span></li>
+          <li><b>물치사 카피캣</b><br><span class="name-sm">유튜브 숏폼 · 인스타 릴스 레퍼런스 3건</span></li>
+        </ul>
+      </div>
+      <div class="out-card c-waist">
+        <div class="oc-h">허편케<span class="cnt">2건</span></div>
+        <ul>
+          <li><b>허리협착증 실사화 · 썰형식</b><span class="t t-rvi">요청</span><br><span class="name-sm">4주차 231% · 3주차 18만원 706%에서 증액 후 하락<br>"수술 1,000만원 → 10만원" 방향</span></li>
+          <li><b>틱톡 해외 소재 한글 번역 4건</b><span class="t t-vi">내부</span><br><span class="name-sm">AI소스F · 인물A · 인물C · 인물F<br>해외진출 12건은 15.7만원 쓰고 매출 0 → 고CTR만 추려 재시도</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grp-label"><span class="gi lo">!</span>이월 · 미진행</div>
+    <div class="out-grid">
+      <div class="out-card c-neck">
+        <div class="oc-h">목베개<span class="cnt">3건</span></div>
+        <ul>
+          <li>목젖힘 엑스레이 소스 → 허편케 · 팔꿈치 적용<br><span class="name-sm">목젖힘 201% · 물치 배드 포맷을 타 SKU로</span></li>
+          <li>버팔로험프 진입<br><span class="name-sm">해외 신체 소스 + 버섯목 키네 본문 결합</span></li>
+          <li>에스테틱 컨셉 재시도</li>
+        </ul>
+      </div>
+      <div class="out-card c-elbow">
+        <div class="oc-h">팔꿈치<span class="cnt">4건</span></div>
+        <ul>
+          <li>핵심종이인형 실사화<br><span class="name-sm">공기압 → EMS 침투 → 힘줄 혈류량<br>DPS 150% · B방치시터널 341%</span></li>
+          <li>삼각근 소구점<br><span class="name-sm">3주차에 이어 2주 연속 미집행</span></li>
+          <li>테니스 PA 소스 활용 <span class="name-sm">차주 예상</span></li>
+          <li>수술 오픈톡 시딩 · 소스 수급 <span class="name-sm">@찬희님</span></li>
+        </ul>
+      </div>
+      <div class="out-card">
+        <div class="oc-h">확정 대기<span class="cnt">3건</span></div>
+        <ul>
+          <li>김영옥 건 방향성 가안 <span class="name-sm">차주 월 공유</span></li>
+          <li>틱톡 번역 음성 방식 <span class="name-sm">초반 영문 / 후반 한글 안</span></li>
+          <li>김민우 PA 소스 가격 체크</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grp-label"><span class="gi hi">■</span>이미지 · 공구 대응</div>
+    <div class="out-grid">
+      <div class="out-card c-waist">
+        <div class="oc-h">추석 프로모션<span class="cnt">15건</span></div>
+        <ul>
+          <li>목베개 4 · 팔꿈치 4 · 허편케 4 · 전제품 3</li>
+          <li>최대 71% 할인 후킹 활용</li>
+          <li><span class="name-sm">4주차 추석 소재는 45%. 9/4 세팅 후 월요일 LIVE가 본 구간</span></li>
+        </ul>
+      </div>
+      <div class="out-card c-neck">
+        <div class="oc-h">상시 · 템플릿<span class="cnt">10건+</span></div>
+        <ul>
+          <li>팔꿈치 상시 5 · 목베개 상시 5 <span class="name-sm">~9/4</span></li>
+          <li>힐러쌤 효율 템플릿 타 SKU 적용<br><span class="name-sm">상시를 특가처럼 구성 · 공구 이미지 645% 근거</span></li>
+        </ul>
+      </div>
+      <div class="out-card c-elbow">
+        <div class="oc-h">9월 공구<span class="cnt">3건 연속</span></div>
+        <ul>
+          <li><b>9/7 팔꿈치 — 신금동 교수</b> <span class="name-sm">1차 콘텐츠 수령</span></li>
+          <li><b>9/9 골반마 — 초이끄</b></li>
+          <li><b>9/9 김영옥 PPL</b></li>
+          <li><span class="name-sm">두 공구 모두 힐러쌤 수준으로 이미지·단컷 준비. 4주차 힐러쌤 873만원 / 5,629만원 645%가 기준선</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-h">제작 스케줄</h3>
+    <div class="tbl-wrap" style="margin-top:10px">
+      <table>
+        <caption>제작 스케줄 (9월 1~2주차) — ~9/4 마감분 25건 · 이후 15건 +공구 2건</caption>
+        <thead><tr><th>기한</th><th>제품</th><th>항목</th><th>수량</th><th>상태</th></tr></thead>
+        <tbody><tr><td>~9/4</td><td>목베개</td><td style="text-align:left;font-family:var(--font)">해외박사(맥켄지) <span class="name-sm">@희진님</span> · AI소스 흉쇄유돌근 <span class="name-sm">@승희님</span> · 힐러쌤 카피캣 <span class="name-sm">@희진님</span></td><td class="qty">3</td><td><span class="pill mid">진행</span></td></tr><tr><td>~9/4</td><td>팔꿈치</td><td style="text-align:left;font-family:var(--font)">김민우 PA 띠배너 <span class="name-sm">@희진님</span> · 아버지목 플로우 <span class="name-sm">@승희님</span> · 물치사 카피캣 <span class="name-sm">@희진님</span></td><td class="qty">3</td><td><span class="pill mid">진행</span></td></tr><tr><td>~9/4</td><td>허편케</td><td style="text-align:left;font-family:var(--font)">틱톡 고CTR 4건 한글 번역 <span class="name-sm">@승희님</span></td><td class="qty">4</td><td><span class="pill mid">진행</span></td></tr><tr><td>~9/4</td><td>이미지</td><td style="text-align:left;font-family:var(--font)">팔꿈치 상시 5 · 목베개 상시 5 · 추석 5 <span class="name-sm">@바다님</span></td><td class="qty">15</td><td><span class="pill mid">진행</span></td></tr><tr><td>9/7</td><td>팔꿈치</td><td style="text-align:left;font-family:var(--font)">신금동 교수 공구 — 이미지 / 단컷 <span class="name-sm">힐러쌤 수준</span></td><td class="qty">—</td><td><span class="pill warn">확정 대기</span></td></tr><tr><td>9/7</td><td>이미지</td><td style="text-align:left;font-family:var(--font)">추석 프로모션 추가 <span class="name-sm">@바다님 · 오후 세팅</span></td><td class="qty">5</td><td><span class="pill warn">확정 대기</span></td></tr><tr><td>9/9</td><td>골반마</td><td style="text-align:left;font-family:var(--font)">초이끄 공구 — 이미지 / 단컷 <span class="name-sm">힐러쌤 수준</span></td><td class="qty">—</td><td><span class="pill warn">확정 대기</span></td></tr><tr><td>9/9</td><td>전제품</td><td style="text-align:left;font-family:var(--font)">김영옥 PPL <span class="name-sm">@희진님 @승희님 6 · 콘텐츠파트 4 · 9/9 LIVE</span></td><td class="qty">10</td><td><span class="pill warn">확정 대기</span></td></tr></tbody>
+      </table>
+    </div>
+    <p class="hint">회의록 원표의 목베개 수량은 2건이나 항목이 3건(해외박사·AI소스·힐러쌤 카피캣)이라 3으로 잡았다. 허편케 4건은 틱톡 번역 4건 기준이고, 공구 2건은 수량 미정이다.</p>
+
+    <h3 class="sub-h">콘텐츠팀 요청 수량</h3>
+    <div class="tbl-wrap" style="margin-top:10px">
+      <table>
+        <caption>콘텐츠팀 요청 수량 · 테스트 항목</caption>
+        <thead><tr><th>구분</th><th>요청 수량</th><th>테스트 항목</th></tr></thead>
+        <tbody><tr><td>9월</td><td>VI 5건 · RVI 12건</td><td style="text-align:left;font-family:var(--font)">목베개 버섯목 썰형식 RVI · 허편케 썰형식 RVI</td></tr></tbody>
+      </table>
+    </div>
+    <p class="hint">3주차에 잡았던 9월 계획은 VI 7건 · RVI 12건, 테스트 항목은 AI 캐릭터 삽입 · 안면비대칭이었다. VI가 2건 줄었고 테스트 항목이 썰형식 2종으로 교체되면서, 4주차에 미집행이던 안면비대칭이 요청 목록에서도 빠졌다.</p>
+
+  </section>
+
+  <footer style="margin-top:60px;padding-top:24px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.82rem;line-height:1.7">
+    <div style="font-weight:700;color:var(--ink)">마케팅 1팀 · 8월 콘텐츠 주간 보고서 (4주차)</div>
+  </footer>
+
+</div>
+</body>
+</html>
